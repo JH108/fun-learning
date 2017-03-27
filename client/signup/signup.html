@@ -15,15 +15,30 @@
 				<label for="Password">Password: <input type="password" placeholder="Password" ng-model="password" required></label>
 
 				<label for="School name">Schoolname: <input type="text" placeholder="School name" ng-model="school" required></label>
-
+				<label for="lastname">Grade: <input type="number" placeholder="5" ng-model="grade" required></label>
 				<label for="Teacher name">Teacher name: <input type="text" placeholder="Teacher name" ng-model="teacher" required></label>
 				<br>
 
+<!-- 				<label class="radio-inline">
+					<input type="radio" name="avatar" value="brown" id="brown" ng-model="avatar_head" required/>Yogi</label>
+				<label class="radio-inline">
+					<input type="radio" name="avatar" value="yellow" id="yellow" ng-model="avatar_head" required/>Baloo</label>
+
 				<img ng-click = "setAvatarHead($event)" src="assets/bear_animation_head_only.png" ng-model="avatar_head" value = "'assets/bear_animation_head_only.png'"></img>
 
-				<img ng-click = "setAvatarBody($event)" src="assets/bear_animation_head_only.png" ng-model="avatar_head" value = "'assets/bear_animation_test.png'"></img>
-				</div>
+				<img ng-click = "setAvatarHead($event)" src="assets/yellow_bear_side_head.png" ng-model="avatar_head" value = "'assets/yellow_bear_side_head.png'"></img>
+				</div> -->
 
+
+
+			<input type="radio" name="avatar" value="assets/bear_animation_head_only.png" id="brown" ng-model="avatar_head"/>
+				<label for="brown_avatar"><img src="assets/bear_animation_head_only.png"></label>
+
+			<input type="radio" name="avatar" value="assets/yellow_bear_side_head.png" id="yellow" ng-model="avatar_head"/>
+				<label for="yellow_avatar"><img src="assets/yellow_bear_side_head.png"></label>
+			<br>
+				{{avatar_head}}
+			<br>
 
 			<label style="text-align:left">&ensp; &ensp; Administrator : </label>
 			<label class="radio-inline" ng-model="isAdministrator" required>

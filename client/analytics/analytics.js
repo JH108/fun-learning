@@ -15,7 +15,7 @@ angular.module('funLearning.analytics', ['chart.js'])
     $scope.setGame = function($event) {
       $scope.game= $event.target.getAttribute('value');
       gameName = $event.target.getAttribute('value');
-      var parameterAverages = findClassAverage(allStudentsUnderCertainTeacher, parameterToMonitor, gameName);
+      var parameterAverages = findClassAverage (allStudentsUnderCertainTeacher, parameterToMonitor, gameName);
       var combinedClassAverage = combineClassAverage(parameterAverages);
       console.log(combinedClassAverage);
       setLabels(parameterAverages);
