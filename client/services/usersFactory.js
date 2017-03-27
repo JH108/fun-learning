@@ -59,9 +59,3 @@ angular.module('funLearning.users', [])
       getCurrentUser: getCurrentUser
     };
   });
-
-
-
-
-
-

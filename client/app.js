@@ -25,15 +25,15 @@ angular.module('funLearning', [
       controller: 'DashboardCtrl'
     })
     .when('/game', {
-      templateUrl: 'games/game.html',
+      templateUrl: 'games/game1/game.html',
       controller: 'GameCtrl'
     })
     .when('/game2', {
-      templateUrl: 'games/game2.html',
+      templateUrl: 'games/game2/game2.html',
       controller: 'GameCtrl2'
     })
     .when('/game3', {
-      templateUrl: 'games/game3.html',
+      templateUrl: 'games/game3/game3.html',
       controller: 'GameCtrl3'
     })
     .when('/profile', {
