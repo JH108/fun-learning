@@ -9,8 +9,7 @@ angular.module('funLearning.analytics', ['chart.js'])
     var parameterToMonitor = "points";
     var gameName = "game1";
 
-    var allStudentsUnderCertainTeacher = findAllStudentsUnderTeacher("Tre");
-
+//
 
 
     $scope.changeLocation = function(path) {
@@ -515,16 +514,6 @@ angular.module('funLearning.analytics', ['chart.js'])
   //     // setDataSetOverrideAndOptions(combinedClassAverage);
   //    }
   // };
-
-
-
-
-
-
-
-
-
-
 
 
 
