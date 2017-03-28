@@ -12,11 +12,11 @@ router.post('/api/results/:gameName/:userName', function(req, res) {
   var userName = req.sanitize(req.params.userName);
   console.log('adding results still works');
   // builds game data object with sanitized values
-  var gameData = {};
-  for(var key in req.body) {
-    gameData[key] = req.sanitize(req.body[key]);
-  }
-  console.log(gameData);
+  var gameData = req.body;
+  // for(var key in req.body) {
+  //   gameData[key] = req.sanitize(req.body[key]);
+  // }
+  // console.log(gameData);
   // builds query string for dynamically selecting the game to insert the results into
   var query = {};
   query['gameResults.' + gameName] = gameData;
