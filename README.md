@@ -56,12 +56,12 @@ Phaser Game (Game file structure):
 
 Phaser GameState Object:
   GameState =
-  {
-    Boot: Object,
-    Preload: Object,
-    MainMenu: Object,
-    Level1: Object
-  }
+    {
+      Boot: Object,
+      Preload: Object,
+      MainMenu: Object,
+      Level1: Object
+    }
 
 
 
