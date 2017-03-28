@@ -99,9 +99,6 @@ GameState.Level1.prototype = {
     }
   },
 
-  // enemyFires: function(){
-  //   this.game.physics.arcade.moveToObject(this.ghost,this.kanye,120);
-  // },
   enemyFires: function(ghost){
     this.game.physics.arcade.moveToObject(ghost,this.kanye,60);
   },

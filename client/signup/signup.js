@@ -19,9 +19,9 @@ angular.module('funLearning.signup', [])
         dateJoined: "03-25-2017",
         avatar: [$scope.avatar_body, $scope.avatar_head],
         gameResults: {
-          game1: [{"livesUsed": 0, "time": 0, "pointsScored": 0, "pointsAvailable": 0, "feeling": 0}],
-          game2: [{"livesUsed": 0, "time": 0, "pointsScored": 0, "pointsAvailable": 0, "feeling": 0}],
-          game3: [{"livesUsed": 0, "time": 0, "pointsScored": 0, "pointsAvailable": 0, "feeling": 0}]
+          "game1": [{"livesUsed": 0, "time": 0, "pointsScored": 0, "pointsAvailable": 0, "feeling": 0}],
+          "game2": [{"livesUsed": 0, "time": 0, "pointsScored": 0, "pointsAvailable": 0, "feeling": 0}],
+          "game3": [{"livesUsed": 0, "time": 0, "pointsScored": 0, "pointsAvailable": 0, "feeling": 0}]
         },
         badges: [],
         friends: [],
@@ -38,6 +38,7 @@ angular.module('funLearning.signup', [])
       $scope.grade = '';
       $scope.teacher = '';
       $scope.school = '';
+      console.log(user);
       UsersFactory.addNewUser(user);
     };
 

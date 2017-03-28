@@ -3,12 +3,12 @@ angular.module('funLearning.analytics', ['chart.js'])
 
     $scope.dataTable = [];
     $scope.compareDataTable = [];
+    console.log(UsersFactory.allUsers);
 
 
     var dataTypeTrigger = "all";
     var parameterToMonitor = "points";
     var gameName = "game1";
-
 
     $scope.changeLocation = function(path) {
       console.log('clicked: ', path);
@@ -44,6 +44,7 @@ angular.module('funLearning.analytics', ['chart.js'])
     setLabels(parameterAverages);
 
 
+     console.log("INSIDE OF HERE!")
      if (dataTypeTrigger === "all"){
       setData(parameterAverages);
       setLabels(parameterAverages);
@@ -76,6 +77,7 @@ angular.module('funLearning.analytics', ['chart.js'])
 
       for (var i = 0; i<allStudentData.length; i++){
         var individualObject = allStudentData[i];
+        console.log(individualObject);
         var individualObjectName = individualObject["teacher"];
         if (individualObjectName === teacher){
           allStudentsUnderTeacherArray.push(individualObject);
@@ -85,6 +87,10 @@ angular.module('funLearning.analytics', ['chart.js'])
       console.log("Working!")
       return allStudentsUnderTeacherArray;
     };
+
+    var allStudentsUnderCertainTeacher = findAllStudentsUnderTeacher("Tre");
+
+    console.log(allStudentsUnderCertainTeacher);
 
 
 
@@ -101,12 +107,10 @@ angular.module('funLearning.analytics', ['chart.js'])
       }
     };
 
-
     var extractSingleStudentPerformance = function(singleStudent, parameter, game){
       var scores = [];
-      console.log(game);
       var studentGameResults = singleStudent['gameResults'][game];
-      console.log(game);
+      console.log("The game is ", game);
       console.log("Here!");
       console.log("Here are the student game results! ", studentGameResults);
 
@@ -461,59 +465,54 @@ angular.module('funLearning.analytics', ['chart.js'])
     var classAveragesLength = classAverages.length;
 
 
-  //  $scope.setCompareParameter = function($event) {
-  //    $scope.parameter = $event.target.getAttribute('value');
-  //    var parameterToMonitor = $event.target.getAttribute('value');
-  //    var parameterAverages = findClassAverage(allStudentsUnderCertainTeacher, parameterToMonitor, gameName);
-  //    var combinedClassAverage = combineClassAverage(parameterAverages);
-  //     setCompareLabels(parameterAverages);
+   $scope.setCompareParameter = function($event) {
+     $scope.parameter = $event.target.getAttribute('value');
+     var parameterToMonitor = $event.target.getAttribute('value');
+     var parameterAverages = findClassAverage(allStudentsUnderCertainTeacher, parameterToMonitor, gameName);
+     var combinedClassAverage = combineClassAverage(parameterAverages);
+      setCompareLabels(parameterAverages);
 
-  //    console.log(combinedClassAverage);
-  //    if (dataTypeTrigger === "all"){
-  //     setCompareData(parameterAverages);
-  //     setCompareLabels(combinedClassAverage);
+     console.log(combinedClassAverage);
+     if (dataTypeTrigger === "all"){
+      setCompareData(parameterAverages);
+      setCompareLabels(combinedClassAverage);
 
-  //    } else if (dataTypeTrigger === "combined"){
-  //     setCompareData(combinedClassAverage);
-  //     setCompareLabels(combinedClassAverage);
-  //    }
-  // };
+     } else if (dataTypeTrigger === "combined"){
+      setCompareData(combinedClassAverage);
+      setCompareLabels(combinedClassAverage);
+     }
+  };
 
-  //   //need to make dynamic but for now this will work
-  //   var setCompareLabels = function(data) {
-  //     console.log("Inside of set labels, " + data);
-  //     var numberOfLabels = data[0].length;
-  //     var dynamicLabels = [];
-  //     for (var i = 0; i < numberOfLabels; i++) {
-  //       dynamicLabels.push("Class Attempt " + (i+1));
-  //     }
-  //     $scope.compareLabels = dynamicLabels;
-  //   };
+    var setCompareLabels = function(data) {
+      console.log("Inside of set labels, " + data);
+      var numberOfLabels = data[0].length;
+      var dynamicLabels = [];
+      for (var i = 0; i < numberOfLabels; i++) {
+        dynamicLabels.push("Class Attempt " + (i+1));
+      }
+      $scope.compareLabels = dynamicLabels;
+    };
 
-  //   var setCompareData = function(data) {
-  //     console.log("dataSet!");
-  //     $scope.compareData = data;
-  //   };
+    var setCompareData = function(data) {
+      console.log("dataSet!");
+      $scope.compareData = data;
+    };
 
-  //   $scope.setCompareGame = function($event) {
-  //     $scope.game= $event.target.getAttribute('value');
-  //     gameName = $event.target.getAttribute('value');
-  //     var parameterAverages = findClassAverage (allStudentsUnderCertainTeacher, parameterToMonitor, gameName);
-  //     var combinedClassAverage = combineClassAverage(parameterAverages);
-  //     console.log(combinedClassAverage);
-  //     setCompareLabels(parameterAverages);
-  //     if (dataTypeTrigger === "all"){
-  //     setCompareData(parameterAverages);
-  //     setCompareLabels(parameterAverages);
-  //     // setDataSetOverrideAndOptions(parameterAverages);
-  //    } else if (dataTypeTrigger === "combined"){
-  //     setCompareData(combinedClassAverage);
-  //     setCompareLabels(combinedClassAverage);
-  //     // setDataSetOverrideAndOptions(combinedClassAverage);
-  //    }
-  // };
-
-
+    $scope.setCompareGame = function($event) {
+      $scope.game= $event.target.getAttribute('value');
+      gameName = $event.target.getAttribute('value');
+      var parameterAverages = findClassAverage (allStudentsUnderCertainTeacher, parameterToMonitor, gameName);
+      var combinedClassAverage = combineClassAverage(parameterAverages);
+      console.log(combinedClassAverage);
+      setCompareLabels(parameterAverages);
+      if (dataTypeTrigger === "all"){
+      setCompareData(parameterAverages);
+      setCompareLabels(parameterAverages);
+     } else if (dataTypeTrigger === "combined"){
+      setCompareData(combinedClassAverage);
+      setCompareLabels(combinedClassAverage);
+     }
+   };
 
   });
 

@@ -97,7 +97,6 @@ GameState3.Level1.prototype = {
     this.background.tilePosition.y += 2;
 
     this.game.timerTest +=1;
-    console.log(this.game.timerTest/60);
 
     if (this.ship.alive) {
       this.ship.body.velocity.setTo(0, 0);
@@ -350,7 +349,7 @@ GameState3.Level1.prototype = {
       this.questionText.text = this.questionString + this.questionToAsk;
       if (this.game.attempts === 0){
         this.game.score+=1;
-        this.scoreText.text = this.scoreString + this.game.score;
+          this.scoreText.text = this.scoreString + this.game.score;
 
       }
       this.game.attempts = 0;
