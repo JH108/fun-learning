@@ -9,8 +9,6 @@ angular.module('funLearning.analytics', ['chart.js'])
     var parameterToMonitor = "points";
     var gameName = "game1";
 
-//
-
 
     $scope.changeLocation = function(path) {
       console.log('clicked: ', path);
